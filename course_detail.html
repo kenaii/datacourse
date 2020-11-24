@@ -1,0 +1,543 @@
+<head>
+  <link rel="stylesheet" href="styles/header.css" />
+  <link rel="stylesheet" href="styles/background.css" />
+  <link rel="stylesheet" href="styles/login.css" />
+  <link rel="stylesheet" href="styles/fonts.css" />
+  <link rel="stylesheet" href="styles/detail.css" />
+  <link
+    rel="stylesheet"
+    href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
+  />
+  <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+</head>
+<style>
+  html,
+  body {
+    font-family: "Open Sans", "RobotoCondensed", sans-serif;
+    overflow-x: hidden;
+  }
+
+  .video-overlay {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    -webkit-transition: all ease 500ms;
+    transition: all ease 500ms;
+  }
+
+  .video-overlay.open {
+    position: fixed;
+    z-index: 1000;
+    opacity: 1;
+  }
+
+  .video-overlay-close {
+    position: absolute;
+    z-index: 1000;
+    top: 15px;
+    right: 20px;
+    font-family: sans-serif;
+    font-size: 36px;
+    line-height: 1;
+    font-weight: 400;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-transition: all 200ms;
+    transition: all 200ms;
+  }
+
+  .video-overlay-close:hover {
+    color: #fa183d;
+  }
+
+  .video-overlay iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    /* width: 90%; */
+    /* height: auto; */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.75);
+  }
+
+  .login-button {
+    padding: 10 15;
+    background-image: linear-gradient(-90deg, #7b69f0, #0f9df6);
+    color: #fff;
+    text-decoration: none;
+    font-family: bull_bold;
+    text-align: center;
+    border-radius: 5px;
+    width: 65px;
+  }
+</style>
+<body class="bg">
+  <div style="max-width: 900px; border: 0px solid black; margin: auto">
+    <div id="login-wrapper">
+      <div class="form-structor">
+        <div class="signup slide-up">
+          <h2 class="form-title" id="signup"><span>эсвэл</span>Бүртгүүлэх</h2>
+          <div class="form-holder">
+            <input type="text" class="input" placeholder="Name" />
+            <input type="email" class="input" placeholder="Email" />
+            <input type="password" class="input" placeholder="Password" />
+          </div>
+          <button class="submit-btn">Бүртгүүлэх</button>
+        </div>
+        <div class="login">
+          <div class="center">
+            <h2 class="form-title" id="login"><span>эсвэл</span>Нэвтрэх</h2>
+            <div class="form-holder">
+              <input type="email" class="input" placeholder="Email" />
+              <input type="password" class="input" placeholder="Password" />
+            </div>
+            <button class="submit-btn">Нэвтрэх</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="video-overlay" class="video-overlay">
+      <a class="video-overlay-close">&times;</a>
+    </div>
+
+    <div class="header" style="border: 0px solid red">
+      <div class="flex-header-left" style="border: 0px solid blue">
+        <img src="images/logo.png" class="logo" />
+      </div>
+      <div
+        class="flex-header-right social-buttons"
+        style="border: 0px solid green"
+      >
+        <a class="phone"
+          ><i class="fa fa-phone" aria-hidden="true"></i>94952323</a
+        >
+        <a href="#" class="social-button facebook"
+          ><i class="fa fa-facebook"></i
+        ></a>
+        <a href="#" class="social-button twitter"
+          ><i class="fa fa-twitter"></i
+        ></a>
+        <a href="#" class="social-button linkedin"
+          ><i class="fa fa-linkedin"></i
+        ></a>
+        <a href="#" id="login-button" class="login-button"
+          ><i class="fa fa-user-circle" aria-hidden="true"></i>НЭВТРЭХ</a
+        >
+      </div>
+    </div>
+
+    <div
+      style="
+        border: 0px solid red;
+        display: flex;
+        font-family: Roboto;
+        align-content: center;
+        padding: 5px 0;
+      "
+    >
+      <div
+        style="
+          border: 0px solid blue;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        "
+      >
+        <img
+          src="images/khangal.jpg"
+          style="width: 48px; border: 1px solid #fff; border-radius: 50px"
+        />
+      </div>
+      <div
+        style="
+          border: 0px solid blue;
+          padding: 0 16px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        "
+      >
+        <p style="font-family: Roboto">Багш</p>
+        <b>С.Хангал</b>
+      </div>
+      <div
+        style="
+          border: 0px solid blue;
+          padding: 0 16px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        "
+      >
+        <p style="font-family: Roboto">Төрөл</p>
+        <b>Дата анализ</b>
+      </div>
+      <div
+        style="
+          border: 0px solid blue;
+          padding: 0 16px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        "
+      >
+        <p style="font-family: Roboto">Үнэлгээ</p>
+        <div
+          style="
+            border: 0px solid green;
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            cursor: pointer;
+          "
+        >
+          <svg
+            fill="#FFC324"
+            height="18"
+            viewBox="0 0 24 24"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+            />
+            <path d="M0 0h24v24H0z" fill="none" />
+          </svg>
+          <svg
+            fill="#FFC324"
+            height="18"
+            viewBox="0 0 24 24"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+            />
+            <path d="M0 0h24v24H0z" fill="none" />
+          </svg>
+          <svg
+            fill="#FFC324"
+            height="18"
+            viewBox="0 0 24 24"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+            />
+            <path d="M0 0h24v24H0z" fill="none" />
+          </svg>
+          <svg
+            fill="#FFC324"
+            height="18"
+            viewBox="0 0 24 24"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+            />
+            <path d="M0 0h24v24H0z" fill="none" />
+          </svg>
+          <svg
+            fill="#FFC324"
+            height="18"
+            viewBox="0 0 24 24"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <defs><path d="M0 0h24v24H0V0z" id="a" /></defs>
+            <clipPath id="b">
+              <use overflow="visible" xlink:href="#a" />
+            </clipPath>
+            <path
+              clip-path="url(#b)"
+              d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4V6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        style="
+          border: 0px solid blue;
+          padding: 0 16px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        "
+      >
+        <p style="font-family: Roboto">Үнэ</p>
+        <b>300.000₮</b>
+      </div>
+      <div
+        style="
+          border: 0px solid blue;
+          display: flex;
+          align-items: center;
+          flex: 1;
+          justify-content: flex-end;
+        "
+      >
+        <div
+          style="
+            width: 140px;
+            height: 40px;
+            font-family: bull_bold;
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            justify-content: center;
+            background-color: #ffc324;
+            background-image: -webkit-gradient(
+              linear,
+              right top,
+              left top,
+              from(#7b69f0),
+              to(#0f9df6)
+            );
+            background-image: linear-gradient(-90deg, #7b69f0, #0f9df6);
+            border-radius: 5px;
+            cursor: pointer;
+            color: #fff;
+          "
+        >
+          Худалдаж авах
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-container" style="border: 0px solid pink">
+      <div class="flex-item-left" style="border: 0px solid yellow">
+        <iframe
+          src="https://player.vimeo.com/video/480793744"
+          width="100%"
+          height="360"
+          frameborder="0"
+          allow="autoplay; fullscreen"
+          allowfullscreen
+        ></iframe>
+        <div class="tabs">
+          <input type="radio" name="tabs" id="tabone" checked="checked" />
+          <label for="tabone">Хичээлийн тухай</label>
+          <div class="tab">
+            <h1>Data Science Python</h1>
+            <p>
+              Python хэл бол “Веб хөгжүүлэлт”, “Хиймэл оюун ухаан”, ”Дата сайнс”
+              зэрэгт түгээмэл ашиглагдаж байгаа програмчлалын хэл юм. Өгөгдөлд
+              дүн шинжилгээ хийх, Хиймэл оюун ухааны салбарт өргөн хэрэглэгдэж
+              байгаа учраас цаашдаа ч хэрэглээ нь хурдацтай нэмэгдэх төлөвтэй
+              байна. Хэрвээ та Дата Аналист, Дата Сайнтист-аар ажиллахаар эсвэл
+              сурахаар төлөвлөж буй бол таны зайлшгүй эзэмших шаардлагатай
+              програмчлалын хэл бол Python юм.
+            </p>
+          </div>
+
+          <input type="radio" name="tabs" id="tabtwo" />
+          <label for="tabtwo">Багшийн тухай</label>
+          <div class="tab">
+            <div style="display: flex">
+              <img
+                src="images/khangal.jpg"
+                style="width: 48px; border: 1px solid #fff; border-radius: 50px"
+              />
+              <h1 style="padding: 0 10px">Сайнбаярын Хангал</h1>
+            </div>
+            <div class="icontent">
+              <div
+                style="
+                  clear: both;
+                  background: #ebebeb;
+                  height: 1px;
+                  width: 100%;
+                  margin: 0 0 10px 0;
+                "
+              >
+                &nbsp;
+              </div>
+              <p><strong>Ажилласан туршлага:</strong></p>
+
+              <p>
+                <strong>2012-2013 </strong>&nbsp;Грандлайн ҮЦК-ийн санхүүгийн
+                шинжээч
+              </p>
+
+              <p>
+                <strong>2013-2014</strong> &nbsp;Мандал Даатгал ХК-ийн хөрөнгө
+                оруулалтын шинжээч
+              </p>
+
+              <p>
+                <strong>2014-2016</strong> &nbsp;Гаүли ҮЦК-ийн хөрөнгө
+                оруулалтын шинжээч
+              </p>
+
+              <p>
+                <strong>2016-2017</strong> &nbsp;Голомт банкны алт, хувьцааны
+                дилер
+              </p>
+
+              <p>
+                <strong>2018-2019</strong> &nbsp;Голомт банкны НУГ ахлах дилер
+              </p>
+
+              <p>
+                <strong>2019-2020.8 сар</strong>&nbsp;Голомт банкны НУГ –ын
+                Арилжааны хэлтсийн захирал
+              </p>
+
+              <p>
+                <strong>2020.8 сараас -&nbsp;</strong>Голомт капитал ҮЦК ХХК-ийн
+                дэд захирал
+              </p>
+
+              <p><strong>Судалгааны чиглэл:</strong></p>
+
+              <ul style="margin-left: 30px">
+                <li>Компанийн сайн засаглал</li>
+                <li>Хөрөнгийн зах зээл ба макро эдийн засгийн хамаарал</li>
+                <li>Оновчтой багц сонголт</li>
+                <li>Зан төлөвийн санхүү</li>
+              </ul>
+              <div
+                style="
+                  clear: both;
+                  background: #ebebeb;
+                  height: 1px;
+                  width: 100%;
+                  margin: 10px 0;
+                "
+              >
+                &nbsp;
+              </div>
+              <p><strong>Бүтээл туурвил:</strong></p>
+
+              <p>
+                2009 онд “Бодомж 1” хөрөнгийн зах зээл анхлан сонирхогчдод
+                зориулсан номыг бичсэн
+              </p>
+
+              <p>
+                2013 онд “Багц сонголтын онол ба гүйцэтгэлийн шинжилгээ” номыг
+                орчуулсан
+              </p>
+
+              <p>
+                2016 онд &nbsp;“Хувьцаа ямар ашигтай вэ” номыг эмхлэн гаргасан
+              </p>
+
+              <p>&nbsp;</p>
+            </div>
+          </div>
+
+          <input type="radio" name="tabs" id="tabthree" />
+          <label for="tabthree">Сэтгэгдэл</label>
+          <div class="tab">
+            <h1>Сэтгэгдэл</h1>
+            <p>
+              Сайн байна уу? Хичээлүүд хугацаатай юу эсвэл насан туршынх уу?
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="flex-item-right" style="border: 0px solid gray">
+        <div class="accordion js-accordion">
+          <div class="accordion__item js-accordion-item">
+            <div class="accordion-header js-accordion-header">Танилцуулга</div>
+            <div class="accordion-body js-accordion-body">
+              <div class="js-accordion">
+                <div class="accordion__item js-accordion-item">
+                  <div class="accordion-header js-accordion-header">
+                    <span>1. Сургалтын танилцуулга</span
+                    ><span class="lecture-length">01:21</span>
+                  </div>
+                </div>
+                <!-- end of sub accordion item -->
+                <div class="accordion__item js-accordion-item">
+                  <div class="accordion-header js-accordion-header">
+                    <span>2. Файлууд татах</span
+                    ><span class="lecture-length">02:30</span>
+                  </div>
+                </div>
+                <!-- end of sub accordion item -->
+                <div class="accordion__item js-accordion-item">
+                  <div class="accordion-header js-accordion-header">
+                    <span>3. Python хэлний тухай</span
+                    ><span class="lecture-length">02:30</span>
+                  </div>
+                </div>
+                <!-- end of sub accordion item -->
+                <div class="accordion__item js-accordion-item">
+                  <div class="accordion-header js-accordion-header">
+                    <span>4. Python суулгах</span
+                    ><span class="lecture-length">10:30</span>
+                  </div>
+                </div>
+                <!-- end of sub accordion item -->
+                <div class="accordion__item js-accordion-item">
+                  <div class="accordion-header js-accordion-header">
+                    <span>5. Anaconda суулгах</span
+                    ><span class="lecture-length">15:00</span>
+                  </div>
+                </div>
+                <!-- end of sub accordion item -->
+                <div class="accordion__item js-accordion-item">
+                  <div class="accordion-header js-accordion-header">
+                    <span>6. IDE 1</span
+                    ><span class="lecture-length">13:44</span>
+                  </div>
+                </div>
+                <!-- end of sub accordion item -->
+                <div class="accordion__item js-accordion-item">
+                  <div class="accordion-header js-accordion-header">
+                    <span>7. IDE 2</span
+                    ><span class="lecture-length">02:11</span>
+                  </div>
+                </div>
+                <!-- end of sub accordion item -->
+              </div>
+              <!-- end of accordion body -->
+            </div>
+            <!-- end of accordion item -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer style="border: 0px solid pink; padding: 10px 0">
+      <p
+        style="
+          text-align: center;
+          padding: 5px 0;
+          font-family: Open Sans;
+          font-size: 14px;
+          font-weight: 400;
+          color: #555;
+        "
+      >
+        Бүх эрх хуулиар хамгаалагдсан © 2020 Хуулбарлахыг хориглоно.
+      </p>
+    </footer>
+  </div>
+</body>
+
+<script type="text/javascript" src="js/main.js"></script>
